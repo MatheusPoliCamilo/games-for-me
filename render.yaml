@@ -1,0 +1,18 @@
+databases:
+  - name: sidequest_ai_production
+    databaseName: sidequest_ai_production
+    user: sidequest_ai
+
+services:
+  - type: web
+    name: sidequest_ai
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: sidequest_ai_production
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
