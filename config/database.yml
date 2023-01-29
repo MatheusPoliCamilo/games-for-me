@@ -83,4 +83,4 @@ production:
   <<: *default
   database: sidequest_ai_production
   username: sidequest_ai
-  password: <%= ENV["SIDEQUEST_AI_DATABASE_PASSWORD"] %>
+  password: <%= ENV["DATABASE_URL"] %>
