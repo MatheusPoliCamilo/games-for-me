@@ -3,13 +3,17 @@ class OpenaiClient
     @client = OpenAI::Client.new
   end
 
-  def call(movie:)
+  def call(media)
     @client.completions(
       parameters: {
         model: "text-davinci-003",
-        prompt: "Return a list of 20 computer games (names only) that are similar to the movie '#{movie}'.",
-        max_tokens: 500
+        prompt: prompt(media),
+        max_tokens: 4000
       }
     )
+  end
+
+  def prompt(media)
+    "Return a list of 5 games (names only and steam appid) that is in nuuvem store that are similar to the movie '#{media}'"
   end
 end
