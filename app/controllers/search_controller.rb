@@ -3,12 +3,12 @@ require 'json'
 class SearchController < ApplicationController
   def index
     response = OpenaiClient.new.call(movie: params[:search])
-    games_names = response["choices"].map { |choice| choice["text"].delete("\n").split(', ') }.flatten
-    puts "Games names: #{games_names}"
-    puts "=" * 100
+    games_names = response["choices"].map do |choice|
+      choice["text"].split("\n")
+    end.flatten.compact_blank.map do |text|
+      text.gsub(/^\d+\.\s/, '').strip
+    end
     recommended_games_steam_ids = games_names.map {|recommended_game| game_basic_infos(recommended_game)}
-    puts "Recommended games steam ids: #{recommended_games_steam_ids}"
-    puts "=" * 100
 
     @recommended_games = recommended_games_steam_ids.map do |game_id|
       next if game_id.nil?
