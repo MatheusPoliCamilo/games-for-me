@@ -1,10 +1,28 @@
 <% if @recommended_games.present? %>
-  <p><%= "#{@recommended_games.length} resultados encontrados." %></p>
-  <ul>
+  <div class="grid grid-cols-4 gap-x-5 gap-y-10">
     <% @recommended_games.each do |game| %>
-      <li><%= game['data']['name'] %></li>
+      <div class="max-w-sm rounded overflow-hidden shadow-lg">
+        <% image_url = '' %>
+        <% image_url = game['data']['screenshots'].first['path_full'] if game['data']['screenshots'].present? %>
+        <% image_url = game['data']['header_image'] if game['data']['header_image'].present? %>
+
+        <%= image_tag image_url, class: "object-cover" %>
+        <div class="px-6 py-4">
+          <div class="font-bold text-xl mb-2"><%= game['data']['name'] %></div>
+          <p class="text-gray-700 text-base">
+            <%= game['data']['short_description'].html_safe %>
+          </p>
+        </div>
+        <div class="px-6 pt-4 pb-2">
+        <% if game['data']['genres'].present? %>
+          <% game['data']['genres'].each do |genre| %>
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"><%= genre['description'] %></span>
+          <% end %>
+          <%end%>
+        </div>
+      </div>
     <% end %>
-  </ul>
+  </div>
 <% else %>
   Não encontramos nenhum jogo relacionado. ☹️
 <% end %>
