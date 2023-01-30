@@ -1,23 +1,27 @@
 <%= tag.div(data: { controller: "home" }) do %>
-  <div>
-    <h1 class="text-black font-bold text-lg">Informe um filme que você gosta</h1>
+  <div class="flex justify-center">
+    <div>
+      <h1 class="text-black font-bold text-xl md:text-2xl">Informe um filme que você gosta</h1>
 
-    <%= tag.form(
-      action: search_index_path,
-      method: :get,
-      data: { turbo_frame: "games" }
-    ) do %>
-      <%= tag.input(
-        type: "text",
-        name: "search"
-      )%>
+      <%= tag.form(
+        action: search_index_path,
+        method: :get,
+        data: { turbo_frame: "games" },
+        class: "flex mt-1"
+      ) do %>
+        <%= tag.input(
+          type: "text",
+          name: "search",
+          class: "h-12 appearance-none border-1 border-gray-400 rounded md:w-[36rem] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 mr-2"
+        )%>
 
-      <%= tag.button(
-        "Search",
-        type: "submit",
-        class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      ) %>
-    <% end %>
+        <%= tag.button(
+          "Search",
+          type: "submit",
+          class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        ) %>
+      <% end %>
+    </div>
   </div>
 
   <div class="mt-5">
