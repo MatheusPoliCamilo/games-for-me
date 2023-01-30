@@ -1,7 +1,10 @@
 <% if @recommended_games.present? %>
-  <% @recommended_games.each do |game| %>
-    <%= game['data']['name'] %>
-  <% end %>
+  <p><%= "#{@recommended_games.length} resultados encontrados." %></p>
+  <ul>
+    <% @recommended_games.each do |game| %>
+      <li><%= game['data']['name'] %></li>
+    <% end %>
+  </ul>
 <% else %>
   Não encontramos nenhum jogo relacionado. ☹️
 <% end %>
