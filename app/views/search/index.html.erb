@@ -1,6 +1,6 @@
 <%= tag.turbo_frame(id: "games") do %>
   <% if @recommended_games.present? %>
-    <div class="grid md:grid-cols-4 gap-x-5 gap-y-10 mt-10">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-10 mt-10">
       <% @recommended_games.each do |game| %>
         <div class="max-w-sm rounded overflow-hidden shadow-lg">
           <% image_url = '' %>

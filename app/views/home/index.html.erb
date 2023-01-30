@@ -27,7 +27,7 @@
   <div class="mt-5">
     <%= tag.turbo_frame(id: "games", data: { home_target: "games" }) %>
 
-    <div class="grid md:grid-cols-4 gap-x-5 gap-y-10 mt-8">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-10 mt-8">
       <%= render partial: "skeleton", collection: 1..4 %>
     </div>
   </div>
