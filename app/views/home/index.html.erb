@@ -3,7 +3,10 @@
 
   <%= tag.form(
     action: search_index_path,
-    method: :get
+    method: :get,
+    data: {
+      turbo_frame: "games",
+    }
   ) do %>
     <%= tag.input(
       type: "text",
