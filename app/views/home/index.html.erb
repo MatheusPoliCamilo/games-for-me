@@ -1,26 +1,30 @@
-<div>
-  <h1 class="text-black font-bold text-lg">Informe um filme que você gosta</h1>
+<%= tag.div(data: { controller: "home" }) do %>
+  <div>
+    <h1 class="text-black font-bold text-lg">Informe um filme que você gosta</h1>
 
-  <%= tag.form(
-    action: search_index_path,
-    method: :get,
-    data: {
-      turbo_frame: "games",
-    }
-  ) do %>
-    <%= tag.input(
-      type: "text",
-      name: "search"
-    )%>
+    <%= tag.form(
+      action: search_index_path,
+      method: :get,
+      data: { turbo_frame: "games" }
+    ) do %>
+      <%= tag.input(
+        type: "text",
+        name: "search"
+      )%>
 
-    <%= tag.button(
-      "Search",
-      type: "submit",
-      class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-    ) %>
-  <% end %>
-</div>
+      <%= tag.button(
+        "Search",
+        type: "submit",
+        class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      ) %>
+    <% end %>
+  </div>
 
-<div class="mt-5">
-  <%= tag.turbo_frame(id: "games") %>
-</div>
+  <div class="mt-5">
+    <%= tag.turbo_frame(id: "games", data: { home_target: "games" }) %>
+
+    <div class="grid grid-cols-4 gap-x-5 gap-y-10 mt-10">
+      <%= render partial: "skeleton", collection: 1..4 %>
+    </div>
+  </div>
+<% end %>
