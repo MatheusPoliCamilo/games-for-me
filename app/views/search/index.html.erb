@@ -1,1 +1,5 @@
-<%= @recommended_games %>
+<% @recommended_games.each do |game| %>
+  <%# <% next if game.nil? || game['data']['success'] == false %> %>
+
+  <%= game['data']%>
+<% end %>
