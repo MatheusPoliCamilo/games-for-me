@@ -12,6 +12,6 @@ class SteamClient
 
     json = JSON.parse(response.body)
 
-    json[@app_id]
+    json[@app_id.to_s]
   end
 end

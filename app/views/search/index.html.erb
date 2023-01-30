@@ -1,5 +1,7 @@
-<% @recommended_games.each do |game| %>
-  <%# <% next if game.nil? || game['data']['success'] == false %> %>
-
-  <%= game['data']%>
+<% if @recommended_games.present? %>
+  <% @recommended_games.each do |game| %>
+    <%= game['data']['name'] %>
+  <% end %>
+<% else %>
+  Não encontramos nenhum jogo relacionado. ☹️
 <% end %>
