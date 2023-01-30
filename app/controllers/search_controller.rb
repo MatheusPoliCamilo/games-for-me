@@ -6,7 +6,7 @@ class SearchController < ApplicationController
     games_names = response["choices"].map do |choice|
       choice["text"].split("\n")
     end.flatten.compact_blank.map do |text|
-      text.gsub(/^\d+\.\s/, '').strip
+      text.gsub(/^\d+.|\)/, '').strip
     end
     recommended_games_steam_ids = games_names.map {|recommended_game| game_basic_infos(recommended_game)}
 

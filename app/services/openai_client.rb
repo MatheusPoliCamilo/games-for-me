@@ -7,7 +7,7 @@ class OpenaiClient
     @client.completions(
       parameters: {
         model: "text-davinci-003",
-        prompt: "Retorne uma lista de 20 jogos de PC (somente os nomes), que sejam semelhantes ao filme '#{movie}'.",
+        prompt: "Return a list of 20 computer games (names only) that are similar to the movie '#{movie}'.",
         max_tokens: 500
       }
     )
