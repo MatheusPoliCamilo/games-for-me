@@ -1,4 +1,4 @@
-class Client
+class OpenaiClient
   def initialize
     @client = OpenAI::Client.new
   end
@@ -7,7 +7,7 @@ class Client
     @client.completions(
       parameters: {
         model: "text-davinci-003",
-        prompt: "Me recomende 10 jogos separados por vírgula, que sejam semelhantes ao filme '#{movie}'.",
+        prompt: "Me dê um array de 10 jogos (somente os nomes) sem números indicando suas posições separados por vírgula, que sejam semelhantes ao filme '#{movie}'.",
         max_tokens: 150
       }
     )
