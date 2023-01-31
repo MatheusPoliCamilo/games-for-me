@@ -1,6 +1,6 @@
 # Games for me
 
-Application that suggests games based on some audiovisual medias (film, series, game, cartoon or Japanese animation - anime), using the text generation artificial intelligence [GPT-3](https://platform.openai.com/docs/api-reference/completions) (text-davinci-003 model), and based on it consuming the API of [Steam](https://store.steampowered.com/) and [Nuuvem](https://www.nuuvem.com/).
+Application that suggests games based on some audiovisual medias (film, series, game, cartoon or Japanese animation - anime), using the text generation artificial intelligence [GPT-3](https://platform.openai.com/docs/api-reference/completions) (text-davinci-003 model) for recommendation, and consuming the API of [Steam](https://store.steampowered.com/) and [Nuuvem](https://www.nuuvem.com/).
 
 ## Examples
 
