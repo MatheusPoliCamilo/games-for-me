@@ -45,10 +45,15 @@
 
             <div>
               <%= tag.a(
-                "Steam",
                 href: "https://store.steampowered.com/app/#{game[:steam_appid]}",
-                class: "bg-slate-800 hover:bg-slate-900 text-white font-bold py-2 px-4 rounded"
-              ) %>
+                class: "flex text-white font-bold py-2 px-4 rounded-lg hover:underline items-center",
+                style: "background-color: black;",
+                target: "_blank"
+                ) do %>
+                <%= inline_svg_tag "steam.svg", class: 'w-[20px] h-[20px] mr-2' %>
+                <p class="mr-2">Steam</p>
+                <%= inline_svg_tag "external_link.svg", class: 'w-[16px] h-[16px]' %>
+              <% end %>
             </div>
           </div>
         </div>
