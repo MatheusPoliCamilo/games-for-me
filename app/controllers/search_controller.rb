@@ -8,6 +8,6 @@ class SearchController < ApplicationController
   private
 
   def media
-    JSON.parse(params[:media]).map { |hash| hash["value"] }.join(", ")
+    JSON.parse(params[:media]).map { |hash| hash["value"] }.join(", ") if params[:media].present?
   end
 end
