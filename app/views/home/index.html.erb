@@ -10,11 +10,17 @@
         data: { turbo_frame: "games" },
         class: "flex mt-1"
       ) do %>
-        <%= tag.input(
-          type: "text",
-          name: "media",
-          class: "h-12 appearance-none border-1 border-gray-400 rounded md:w-[36rem] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 mr-2"
-        )%>
+        <div>
+          <%= tag.input(
+            type: "text",
+            name: "media",
+            data: {
+              home_target: "media",
+            },
+            class: "h-12 appearance-none border-1 border-gray-400 rounded md:w-[36rem] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 mr-2"
+          ) %>
+        </div>
+
 
         <%= select_tag(
           :media_type,
@@ -34,6 +40,10 @@
           class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         ) %>
       <% end %>
+
+      <h3 class="text-black font-regular text-md mt-2">
+        Utilize <kbd class="py-1 px-2 rounded w-24 bg-gradient-to-tl from-gray-200 to-gray-300-opacity-60 border-gray-300 border-b-2 shadow-darker text-gray-600">;</kbd> para separar os nomes de mídias.
+      </h3>
     </div>
   </div>
 
