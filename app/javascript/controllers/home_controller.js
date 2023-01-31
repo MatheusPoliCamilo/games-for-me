@@ -1,11 +1,10 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["skeleton", "games"]
+  static targets = ["skeleton", "games", "media"]
 
   connect() {
-    var input = document.querySelector('input[name=media]')
-    new Tagify(input)
+    new Tagify(this.mediaTarget, { delimiters: ";" })
 
     addEventListener("turbo:submit-start", (event) => {
       this.gamesTarget.innerHTML = ""
