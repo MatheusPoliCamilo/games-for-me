@@ -14,6 +14,9 @@ class SteamClient
 
     json = JSON.parse(response.body)
 
+    puts "App id: #{@app_id}"
+    puts "===" * 100
+
     json[@app_id.to_s]
   end
 end

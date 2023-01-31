@@ -1,7 +1,8 @@
 <%= tag.div(data: { controller: "home" }) do %>
   <div class="flex justify-center">
     <div>
-      <h1 class="text-black font-bold text-xl md:text-2xl">Informe um filme que você gosta</h1>
+      <h1 class="text-black font-bold text-xl md:text-2xl">Informe uma mídia audiovisual que você gosta</h1>
+      <h3 class="text-black font-regular text-md md:text-xl">Digite o nome do filme, série, desenho animado ou anime que você mais curte assistir!</h3>
 
       <%= tag.form(
         action: search_index_path,
