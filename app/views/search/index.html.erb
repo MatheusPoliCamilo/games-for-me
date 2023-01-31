@@ -2,20 +2,54 @@
   <% if @recommended_games.present? %>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-10 mt-10">
       <% @recommended_games.each do |game| %>
-        <div class="max-w-sm rounded overflow-hidden shadow-lg">
-          <%= image_tag game[:header_image], class: "object-cover" %>
-          <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2"><%= game[:name] %></div>
-            <p class="text-gray-700 text-base">
-              <%= game[:short_description].html_safe %>
-            </p>
+        <div class="max-w-sm rounded overflow-hidden shadow-lg flex flex-col justify-between">
+          <div>
+            <%= image_tag game[:header_image], class: "object-cover" %>
+
+            <div class="px-6 py-4">
+              <div class="font-bold text-xl mb-2">
+                <%= game[:name] %>
+              </div>
+              <p class="text-gray-700 text-base">
+                <%= game[:short_description].html_safe %>
+              </p>
+            </div>
+
+            <div class="px-6 pt-4 pb-2">
+              <% if game[:genres].present? %>
+                <% game[:genres].each do |genre| %>
+                  <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                    <%= genre[:description] %>
+                  </span>
+                <% end %>
+              <% end %>
+            </div>
           </div>
-          <div class="px-6 pt-4 pb-2">
-          <% if game[:genres].present? %>
-            <% game[:genres].each do |genre| %>
-              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"><%= genre[:description] %></span>
+
+          <div class="p-5 flex justify-between items-end">
+            <% if game[:metacritic].present? %>
+              <div class="flex">
+                <div class="w-[50px] h-[50px] rounded-md bg-green-500 text-white flex justify-center items-center hover:underline mr-1">
+                  <%= tag.a(
+                    game[:metacritic][:score],
+                    href: game[:metacritic][:url],
+                    class: "text-2xl font-semibold"
+                  ) %>
+                </div>
+
+                <div>
+                  <%= inline_svg_tag "metacritic-icon.svg", class: 'w-[50px] h-[50px]' %>
+                </div>
+              </div>
             <% end %>
-            <%end%>
+
+            <div>
+              <%= tag.a(
+                "Steam",
+                href: "https://store.steampowered.com/app/#{game[:steam_appid]}",
+                class: "bg-slate-800 hover:bg-slate-900 text-white font-bold py-2 px-4 rounded"
+              ) %>
+            </div>
           </div>
         </div>
       <% end %>

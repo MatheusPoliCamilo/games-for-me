@@ -4,8 +4,6 @@ export default class extends Controller {
   static targets = ["skeleton", "games"]
 
   connect() {
-    Turbo.setProgressBarDelay(100)
-
     addEventListener("turbo:submit-start", (event) => {
       this.gamesTarget.innerHTML = ""
 

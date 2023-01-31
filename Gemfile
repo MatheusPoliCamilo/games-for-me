@@ -63,6 +63,9 @@ gem 'httparty', '0.21.0'
 # https://github.com/bkeepers/dotenv
 gem 'dotenv-rails', '2.8.1'
 
+# https://github.com/jamesmartin/inline_svg
+gem 'inline_svg', '1.8.0'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
