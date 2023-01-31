@@ -1,14 +1,14 @@
 <%= tag.div(data: { controller: "home" }) do %>
   <div class="flex justify-center">
     <div>
-      <h1 class="text-black font-bold text-xl md:text-2xl">Informe uma mídia audiovisual que você gosta</h1>
-      <h3 class="text-black font-regular text-md md:text-xl">Digite o nome do filme, série, desenho animado ou anime que você mais curte assistir!</h3>
+      <h1 class="text-center text-black font-bold text-xl md:text-2xl">Informe uma mídia audiovisual que você gosta</h1>
+      <h3 class="text-center text-black font-regular text-md md:text-xl">Digite o nome do filme, série, desenho animado ou anime que você mais curte assistir!</h3>
 
       <%= tag.form(
         action: search_index_path,
         method: :get,
         data: { turbo_frame: "games" },
-        class: "flex mt-1"
+        class: "flex mt-[30px]"
       ) do %>
         <div>
           <%= tag.input(
@@ -41,7 +41,7 @@
         ) %>
       <% end %>
 
-      <h3 class="text-black font-regular text-md mt-2">
+      <h3 class="text-black font-regular text-sm mt-2">
         Utilize <kbd class="py-1 px-2 rounded w-24 bg-gradient-to-tl from-gray-200 to-gray-300-opacity-60 border-gray-300 border-b-2 shadow-darker text-gray-600">;</kbd> para separar os nomes de mídias.
       </h3>
     </div>
