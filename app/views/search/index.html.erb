@@ -2,7 +2,7 @@
   <% if @recommended_games.present? %>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-10 mt-10">
       <% @recommended_games.each do |game| %>
-        <div class="max-w-sm rounded overflow-hidden shadow-lg flex flex-col justify-between">
+        <div class="max-w-sm rounded overflow-hidden shadow-lg flex flex-col justify-between transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 duration-100">
           <div>
             <%= image_tag game[:header_image], class: "object-cover" %>
 
