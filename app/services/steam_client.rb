@@ -6,7 +6,7 @@ class SteamClient
 
   def initialize(app_id)
     @app_id = app_id
-    @options = { query: { appids: app_id }, format: 'json', l: 'pt' }
+    @options = { query: { appids: app_id, l: 'portuguese' }, format: 'json' }
   end
 
   def game_info
