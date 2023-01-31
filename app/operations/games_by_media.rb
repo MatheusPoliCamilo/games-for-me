@@ -27,7 +27,9 @@ class GamesByMedia
 
       response = steam_data(game_app_id)
 
-      response['data'] # Steam's return
+      next unless response['success']
+
+      response['data'].merge({nuuvem_link: nuuvem_data(response['data']['name'].strip)})
     end.compact
 
     parse_response(games_full_info)
@@ -43,6 +45,14 @@ class GamesByMedia
 
   def steam_data(app_id)
     SteamClient.new(app_id).game_info
+  end
+
+  def nuuvem_data(game_name)
+    nuuvem_game = NuuvemClient.new.game_info(game_name)
+
+    return if nuuvem_game.nil? || !nuuvem_game.dig('data', 'attributes', 'published')
+
+    nuuvem_game['links']['store']
   end
 
   def parse_response(response)

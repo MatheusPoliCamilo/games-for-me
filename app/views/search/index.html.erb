@@ -53,15 +53,27 @@
             </div>
 
             <div>
-              <%= tag.a(
-                href: "https://store.steampowered.com/app/#{game[:steam_appid]}",
-                class: "flex text-white font-bold py-2 px-4 rounded-lg hover:underline items-center",
-                style: "background-color: black;",
-                target: "_blank"
-                ) do %>
-                <%= inline_svg_tag "steam.svg", class: 'w-[20px] h-[20px] mr-2' %>
-                <p class="mr-2">Steam</p>
-                <%= inline_svg_tag "external_link.svg", class: 'w-[16px] h-[16px]' %>
+              <% if game[:nuuvem_link].present? %>
+                <%= tag.a(
+                  href: "#{game[:nuuvem_link]}",
+                  class: "bg-blue-500 flex text-white font-bold py-2 px-4 rounded-lg hover:underline items-center",
+                  target: "_blank"
+                  ) do %>
+                  <%= inline_svg_tag "nuuvem.svg", class: 'w-[20px] h-[20px] mr-2' %>
+                  <p class="mr-2">Nuuvem</p>
+                  <%= inline_svg_tag "external_link.svg", class: 'w-[16px] h-[16px]' %>
+                <% end %>
+              <% else %>
+                <%= tag.a(
+                  href: "https://store.steampowered.com/app/#{game[:steam_appid]}",
+                  class: "flex text-white font-bold py-2 px-4 rounded-lg hover:underline items-center",
+                  style: "background-color: black;",
+                  target: "_blank"
+                  ) do %>
+                  <%= inline_svg_tag "steam.svg", class: 'w-[20px] h-[20px] mr-2' %>
+                  <p class="mr-2">Steam</p>
+                  <%= inline_svg_tag "external_link.svg", class: 'w-[16px] h-[16px]' %>
+                <% end %>
               <% end %>
             </div>
           </div>
