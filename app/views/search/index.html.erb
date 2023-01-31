@@ -2,7 +2,7 @@
   <% if @recommended_games.present? %>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-10 mt-10">
       <% @recommended_games.each do |game| %>
-        <div class="max-w-sm rounded overflow-hidden shadow-lg flex flex-col justify-between">
+        <div class="max-w-sm rounded overflow-hidden shadow-lg flex flex-col justify-between transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 duration-100">
           <div>
             <%= image_tag game[:header_image], class: "object-cover" %>
 
@@ -29,13 +29,22 @@
           <div class="p-5 flex justify-between items-end">
             <div class="flex">
               <% if game[:metacritic].present? %>
-                <div class="w-[50px] h-[50px] rounded-md bg-green-500 text-white flex justify-center items-center hover:underline mr-1">
-                  <%= tag.a(
-                    game[:metacritic][:score],
-                    href: game[:metacritic][:url],
-                    class: "text-2xl font-semibold"
-                  ) %>
-                </div>
+                <%= tag.a(
+                  href: game[:metacritic][:url],
+                  class: "text-2xl font-semibold",
+                  target: "_blank"
+                ) do %>
+                  <%= tag.div(
+                    class: class_names(
+                      "w-[50px] h-[50px] rounded-md text-white flex justify-center items-center hover:underline mr-1",
+                      "bg-green-500": game[:metacritic][:score] >= 70,
+                      "bg-yellow-400": game[:metacritic][:score] >= 50 && game[:metacritic][:score] < 70,
+                      "bg-red-500": game[:metacritic][:score] < 50
+                    )
+                  ) do %>
+                    <%= game[:metacritic][:score] %>
+                  <% end %>
+                <% end %>
 
                 <div>
                   <%= inline_svg_tag "metacritic-icon.svg", class: 'w-[50px] h-[50px]' %>
@@ -45,10 +54,15 @@
 
             <div>
               <%= tag.a(
-                "Steam",
                 href: "https://store.steampowered.com/app/#{game[:steam_appid]}",
-                class: "bg-slate-800 hover:bg-slate-900 text-white font-bold py-2 px-4 rounded"
-              ) %>
+                class: "flex text-white font-bold py-2 px-4 rounded-lg hover:underline items-center",
+                style: "background-color: black;",
+                target: "_blank"
+                ) do %>
+                <%= inline_svg_tag "steam.svg", class: 'w-[20px] h-[20px] mr-2' %>
+                <p class="mr-2">Steam</p>
+                <%= inline_svg_tag "external_link.svg", class: 'w-[16px] h-[16px]' %>
+              <% end %>
             </div>
           </div>
         </div>
