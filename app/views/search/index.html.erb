@@ -29,13 +29,20 @@
           <div class="p-5 flex justify-between items-end">
             <div class="flex">
               <% if game[:metacritic].present? %>
-                <div class="w-[50px] h-[50px] rounded-md bg-green-500 text-white flex justify-center items-center hover:underline mr-1">
+                <%= tag.div(
+                  class: class_names(
+                    "w-[50px] h-[50px] rounded-md  text-white flex justify-center items-center hover:underline mr-1",
+                    "bg-green-500": game[:metacritic][:score] >= 70,
+                    "bg-yellow-400": game[:metacritic][:score] >= 50 && game[:metacritic][:score] < 70,
+                    "bg-red-500": game[:metacritic][:score] < 50
+                  )
+                ) do %>
                   <%= tag.a(
                     game[:metacritic][:score],
                     href: game[:metacritic][:url],
                     class: "text-2xl font-semibold"
                   ) %>
-                </div>
+                <% end %>
 
                 <div>
                   <%= inline_svg_tag "metacritic-icon.svg", class: 'w-[50px] h-[50px]' %>
