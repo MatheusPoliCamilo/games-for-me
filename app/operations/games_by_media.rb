@@ -9,8 +9,8 @@ class GamesByMedia
     @steam_games = json['applist']['apps']
   end
 
-  def call(media:)
-    ai_games = OpenaiClient.new.call(media)
+  def call(media_type:, media:)
+    ai_games = OpenaiClient.new.call(media_type, media)
 
     return if ai_games.nil? || ai_games.empty?
 

@@ -16,6 +16,17 @@
           class: "h-12 appearance-none border-1 border-gray-400 rounded md:w-[36rem] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 mr-2"
         )%>
 
+        <%= select_tag(
+          :media_type,
+          options_for_select([
+            ['Filme', 'movie'],
+            ['Série', 'serie'],
+            ['Desenho', 'cartoon'],
+            ['Anime', 'anime']
+          ]),
+          class: "appearance-none border-1 border-gray-400 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 mr-2",
+        )%>
+
         <%= tag.button(
           "Search",
           type: "submit",
