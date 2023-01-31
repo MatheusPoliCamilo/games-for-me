@@ -9,3 +9,6 @@ Application that suggests games based on some audiovisual medias (film, series, 
 
 ### Movies - Dragon Ball Super: Boly and One Piece Gold: O Filme (One Piece Film: Gold)
 ![image](https://user-images.githubusercontent.com/25781749/215877570-94b6b90e-0a24-40fc-a0bc-af62c8044ce6.png)
+
+### Anime: Naruto
+![chrome_34eMnuhHZt](https://user-images.githubusercontent.com/25781749/215881888-c94fc602-7b3f-4ddb-ad59-d4a54825e101.gif)
