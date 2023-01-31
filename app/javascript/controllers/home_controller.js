@@ -4,7 +4,10 @@ export default class extends Controller {
   static targets = ["skeleton", "games", "media"]
 
   connect() {
-    new Tagify(this.mediaTarget, { delimiters: ";" })
+    new Tagify(this.mediaTarget, {
+      delimiters: ";",
+      originalInputValueFormat: valuesArr => valuesArr.map(item => item.value).join(',')
+    })
 
     addEventListener("turbo:submit-start", (event) => {
       this.gamesTarget.innerHTML = ""
