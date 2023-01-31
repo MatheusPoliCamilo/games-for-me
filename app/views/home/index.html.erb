@@ -8,7 +8,7 @@
         action: search_index_path,
         method: :get,
         data: { turbo_frame: "games" },
-        class: "flex mt-[30px]"
+        class: "sm:flex mt-1"
       ) do %>
         <div>
           <%= tag.input(
@@ -17,7 +17,7 @@
             data: {
               home_target: "media",
             },
-            class: "min-h-12 md:w-[36rem] appearance-none border-1 border-gray-400 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 mr-2"
+            class: "min-h-12 appearance-none border-1 border-gray-400 rounded w-full sm:w-[25rem] md:w-[36rem] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 mr-2"
           ) %>
         </div>
 
@@ -31,7 +31,7 @@
             ['Desenho', 'cartoon'],
             ['Anime', 'anime']
           ]),
-          class: "h-12 appearance-none border-1 border-gray-400 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 mr-2",
+          class: "h-12 mt-2 sm:mt-0 appearance-none border-1 border-gray-400 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 mr-1 sm:mr-2",
         )%>
 
         <%= tag.button(
